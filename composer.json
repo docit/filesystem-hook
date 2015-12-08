@@ -1,0 +1,23 @@
+{
+    "name": "docit/filesystem-hook",
+    "description": "Filesystem Hook for Docit, enabling the ability to host documentation through the local filesystem, Dropbox, FTP, Amazon S3, or Rackspace Cloud Files.",
+    "keywords": ["docit", "documentation", "laravel", "filesystem", "local", "dropbox", "ftp", "amazon", "rackspace"],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=5.5.9",
+        "docit/core": "1.0.*",
+        "docit/support": "1.0.*",
+        "illuminate/filesystem": "~5.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Docit\\Hooks\\Filesystem\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
