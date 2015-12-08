@@ -1,9 +1,8 @@
 <?php
 namespace Docit\Hooks\Filesystem;
 
-use Docit\Core\Project;
 use Docit\Core\Contracts\Hook;
-use Illuminate\Filesystem\Filesystem;
+use Docit\Core\Project;
 use Illuminate\Filesystem\FilesystemManager;
 
 /**
@@ -34,26 +33,28 @@ class ProjectHook implements Hook
     /**
      * Handle the hook.
      *
-     * @param  \Docit\Core\Project  $project
+     * @param  \Docit\Core\Project $project
      * @return void
      */
     public function handle(Project $project)
     {
-        if (!$project->config('enable_filesystem_hook')) {
+        if ( ! $project->config('enable_filesystem_hook') )
+        {
             $project->setFiles(new LocalFilesystem);
-
         }
 
         $disk     = $project->config('default_filesystem_disk');
         $settings = $project->config('filesystem_hook_settings');
 
-        if (!isset($settings[$disk])) {
+        if ( ! isset($settings[ $disk ]) )
+        {
             return;
         }
 
         $files = $this->fsm->disk($disk);
 
-        if (isset($files)) {
+        if ( isset($files) )
+        {
             $project->setFiles($files);
             $project->setPath($project->getName());
         }
